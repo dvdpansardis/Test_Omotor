@@ -1,0 +1,41 @@
+<h3>Update user</h3>
+<hr/>
+<div class="jumbotron">
+	<form name="userForm">
+	 	<label for="name">Name</label>
+		<input class="form-control" type="text" ng-model="user.name" name="name" placeholder="Name" ng-required="true"/>
+		
+		<label for="telephone_number">Telephone number</label>
+		<input class="form-control" type="text" ng-model="user.telephone_number" name="telephone_number" placeholder="Telephone number" ng-required="true" ng-pattern="/^\d{4,5}-\d{4}$/"/>
+		
+		<label for="email">Email address</label>
+		<input class="form-control" type="email" ng-model="user.email" name="email" placeholder="Email" ng-required="true" />
+		
+		<label for="gender">Gender</label>
+		<select class="form-control" name="gender" ng-model="user.gender" ng-required="true">
+			<option value="male">male</option>
+			<option value="female">female</option>
+		</select>
+	</form>
+	
+	<div ng-show="userForm.name.$error.required" class="alert alert-danger">
+		Please, complete the field name!
+	</div>
+	
+	<div ng-show="userForm.telephone_number.$error.required && userForm.telephone_number.$dirty" class="alert alert-danger">
+		Please, complete the field telephone number!
+	</div>
+	<div ng-show="userForm.telephone_number.$error.pattern" class="alert alert-danger">
+		Please, fix the pattern DDDDD-DDDD!
+	</div>
+	
+	<div ng-show="userForm.email.$error.required && userForm.email.$error.email" class="alert alert-danger">
+		Please, add a valid email!
+	</div>
+	
+	<div ng-show="userForm.gender.$error.required" class="alert alert-danger">
+		Please, select a Gender!
+	</div>
+	<hr/>
+	<button class="btn btn-primary btn-block" ng-click="updateUser()" ng-disabled="userForm.$invalid">Update User</button>
+</div>

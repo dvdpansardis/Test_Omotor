@@ -26,12 +26,12 @@ public class StatusResource {
 	private final static Logger LOGGER = LoggerFactory.getLogger(StatusResource.class);
 	
 	/**
-	 * Retorna o status do server.
+	 * Retorna todos os usuários.
 	 * @return {@link StatusReponse}
 	 */
 	@GetMapping
 	public ResponseEntity<StatusReponse> status() {
-		LOGGER.debug("Status request.");
+		LOGGER.debug("User request.");
 		return ResponseEntity.ok().body(new StatusReponse());
 	}
 
