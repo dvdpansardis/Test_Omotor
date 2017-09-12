@@ -6,9 +6,7 @@
 
 angular.module('test').controller('UserListController',  function ($scope, $state, $window, allUsers, UserService) {
 	
-	
 	$scope.users = allUsers;
-	
 	
 	$scope.deleteUser = function(id) {
 		if($window.confirm('are you sure?')) {

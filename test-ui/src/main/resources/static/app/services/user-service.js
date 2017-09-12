@@ -17,7 +17,7 @@ angular.module("test").factory("UserService", function ($http, config) {
 	};
 	
 	this.deleteUser = function(id){
-		$http.delete(config.baseUrl + "/user/" + id)
+		return $http.delete(config.baseUrl + "/user/" + id)
 	}
 
 	this.addUser = function (user) {

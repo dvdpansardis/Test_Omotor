@@ -2,23 +2,23 @@
 <hr/>
 <div class="jumbotron">
 	<form name="userForm">
-	 	<label for="name">Name</label>
+	 	<label for="name">Name *</label>
 		<input class="form-control" type="text" ng-model="user.name" name="name" placeholder="Name" ng-required="true"/>
 		
-		<label for="telephone_number">Telephone number</label>
+		<label for="telephone_number">Telephone number *</label>
 		<input class="form-control" type="text" ng-model="user.telephone_number" name="telephone_number" placeholder="Telephone number" ng-required="true" ng-pattern="/^\d{4,5}-\d{4}$/"/>
 		
-		<label for="email">Email address</label>
+		<label for="email">Email address *</label>
 		<input class="form-control" type="email" ng-model="user.email" name="email" placeholder="Email" ng-required="true" />
 		
-		<label for="gender">Gender</label>
+		<label for="gender">Gender *</label>
 		<select class="form-control" name="gender" ng-model="user.gender" ng-required="true">
 			<option value="male">male</option>
 			<option value="female">female</option>
 		</select>
 	</form>
 	
-	<div ng-show="userForm.name.$error.required" class="alert alert-danger">
+	<div ng-show="userForm.name.$error.required && userForm.name.$dirty" class="alert alert-danger">
 		Please, complete the field name!
 	</div>
 	
@@ -33,7 +33,7 @@
 		Please, add a valid email!
 	</div>
 	
-	<div ng-show="userForm.gender.$error.required" class="alert alert-danger">
+	<div ng-show="userForm.gender.$error.required && userForm.gender.$dirty" class="alert alert-danger">
 		Please, select a Gender!
 	</div>
 	<hr/>
